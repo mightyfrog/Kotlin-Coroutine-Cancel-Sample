@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
             Toast.makeText(this, "Canceled", Toast.LENGTH_SHORT).show()
         }
 
-        launch(Dispatchers.Main, onCompletion = completionHandler) {
+        launch(onCompletion = completionHandler) {
             textView.text = withContext(Dispatchers.Default) { load() }
             // lines after this will not be executed once the coroutine is canceled
             Log.d("coroutine", "One")
